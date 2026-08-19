@@ -1,0 +1,38 @@
+{% load static %}<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}HMIS Reporting{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'reporting/style.css' %}">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="{% url 'reporting:dashboard' %}">HMIS Reporting</a>
+    <nav>
+      <a href="{% url 'reporting:dashboard' %}">Dashboard</a>
+      {% if user.is_staff %}
+        <a href="{% url 'reporting:upload' %}">Upload data</a>
+        <a href="/admin/">Django admin</a>
+      {% endif %}
+      {% if user.is_authenticated %}
+        <form method="post" action="{% url 'logout' %}" class="inline">
+          {% csrf_token %}
+          <button type="submit" class="linkish">Log out ({{ user.username }})</button>
+        </form>
+      {% endif %}
+    </nav>
+  </header>
+
+  <main>
+    {% if messages %}
+      <ul class="messages">
+        {% for message in messages %}
+          <li class="{{ message.tags }}">{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+    {% block content %}{% endblock %}
+  </main>
+</body>
+</html>

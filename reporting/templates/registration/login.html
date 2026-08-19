@@ -1,0 +1,12 @@
+{% extends "reporting/base.html" %}
+
+{% block title %}Log in | HMIS Reporting{% endblock %}
+
+{% block content %}
+<h1>Log in</h1>
+<form method="post" class="upload">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Log in</button>
+</form>
+{% endblock %}

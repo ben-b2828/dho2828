@@ -1,0 +1,80 @@
+:root { --line: #d9dee5; --accent: #0b6b5a; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  color: #1c2430;
+  background: #f6f8fa;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.5rem;
+  background: var(--accent);
+  color: #fff;
+}
+
+.topbar a { color: #fff; text-decoration: none; margin-right: 1rem; }
+.topbar .brand { font-weight: 700; font-size: 1.1rem; }
+.inline { display: inline; }
+.linkish { background: none; border: 0; color: #fff; cursor: pointer; font: inherit; }
+
+main { max-width: 1100px; margin: 1.5rem auto; padding: 0 1.5rem 3rem; }
+
+.messages { list-style: none; padding: 0; }
+.messages li { padding: 0.6rem 0.9rem; border-radius: 4px; margin-bottom: 0.5rem; }
+.messages .success { background: #e3f5ec; border: 1px solid #7bc4a3; }
+.messages .error { background: #fdeaea; border: 1px solid #e39a9a; }
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: flex-end;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 1rem;
+}
+
+.filters label { display: flex; flex-direction: column; font-size: 0.85rem; gap: 0.25rem; }
+select, input[type="file"], input[type="text"], input[type="password"] {
+  padding: 0.4rem;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  min-width: 200px;
+}
+
+button, .button {
+  background: var(--accent);
+  color: #fff;
+  border: 0;
+  border-radius: 4px;
+  padding: 0.5rem 0.9rem;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.summary { margin: 1rem 0; }
+
+table { width: 100%; border-collapse: collapse; background: #fff; border: 1px solid var(--line); }
+th, td { text-align: left; padding: 0.55rem 0.7rem; border-bottom: 1px solid var(--line); }
+th { background: #eef2f5; }
+td.num, th.num { text-align: right; }
+.empty { text-align: center; color: #66707c; padding: 1.5rem; }
+.completed { color: #147a52; }
+.failed { color: #b3261e; }
+
+.errors {
+  background: #fdeaea;
+  border: 1px solid #e39a9a;
+  border-radius: 6px;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+.upload { background: #fff; border: 1px solid var(--line); border-radius: 6px; padding: 1rem; }
+.templates code { display: block; color: #4a5563; font-size: 0.8rem; }

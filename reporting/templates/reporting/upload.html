@@ -1,0 +1,56 @@
+{% extends "reporting/base.html" %}
+
+{% block title %}Upload data | HMIS Reporting{% endblock %}
+
+{% block content %}
+<h1>Upload data</h1>
+
+<form method="post" enctype="multipart/form-data" class="upload">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Upload</button>
+</form>
+
+{% if errors %}
+  <div class="errors">
+    <h2>Nothing was saved — fix these rows and upload again</h2>
+    <ul>
+      {% for error in errors %}<li>{{ error }}</li>{% endfor %}
+    </ul>
+  </div>
+{% endif %}
+
+<h2>Templates</h2>
+<ul class="templates">
+  {% for dataset, headers in templates.items %}
+    <li>
+      <a href="{% url 'reporting:template' dataset %}">{{ dataset }}_template.csv</a>
+      <code>{{ headers|join:", " }}</code>
+    </li>
+  {% endfor %}
+</ul>
+
+<h2>Recent uploads</h2>
+<table>
+  <thead>
+    <tr>
+      <th>File</th><th>Data set</th><th>Status</th><th class="num">Created</th>
+      <th class="num">Updated</th><th>When</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for batch in batches %}
+      <tr>
+        <td>{{ batch.file_name }}</td>
+        <td>{{ batch.get_dataset_display }}</td>
+        <td class="{{ batch.status }}">{{ batch.get_status_display }}</td>
+        <td class="num">{{ batch.rows_created }}</td>
+        <td class="num">{{ batch.rows_updated }}</td>
+        <td>{{ batch.created_at }}</td>
+      </tr>
+    {% empty %}
+      <tr><td colspan="6" class="empty">No uploads yet.</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

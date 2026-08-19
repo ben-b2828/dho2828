@@ -1,0 +1,58 @@
+{% extends "reporting/base.html" %}
+
+{% block title %}Dashboard | HMIS Reporting{% endblock %}
+
+{% block content %}
+<h1>Reported data</h1>
+
+<form method="get" class="filters">
+  <label>
+    Facility
+    {{ form.facility }}
+  </label>
+  <label>
+    Program
+    {{ form.program }}
+  </label>
+  <label>
+    Reporting period
+    {{ form.period }}
+  </label>
+  <button type="submit">Apply filters</button>
+  <a class="button" href="{% url 'reporting:dashboard' %}">Reset</a>
+</form>
+
+<p class="summary">
+  Showing <strong>{{ records|length }}</strong> record(s)
+  for {{ selected_facility|default:"all facilities" }},
+  {{ selected_program|default:"all programs" }},
+  {{ selected_period|default:"all periods" }}.
+  {% if total is not None %}Total value: <strong>{{ total }}</strong>.{% endif %}
+  <a class="button" href="{% url 'reporting:export' %}{% if query_string %}?{{ query_string }}{% endif %}">Download CSV</a>
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Facility</th>
+      <th>Program</th>
+      <th>Indicator</th>
+      <th>Period</th>
+      <th class="num">Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for record in records %}
+      <tr>
+        <td>{{ record.facility.name }}</td>
+        <td>{{ record.program.name }}</td>
+        <td>{{ record.indicator.name }}{% if record.indicator.unit %} ({{ record.indicator.unit }}){% endif %}</td>
+        <td>{{ record.period.name }}</td>
+        <td class="num">{{ record.value }}</td>
+      </tr>
+    {% empty %}
+      <tr><td colspan="5" class="empty">No data matches the selected filters.</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
