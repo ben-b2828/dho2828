@@ -1,0 +1,4 @@
+code,name,description,is_active
+PRG-HIV,HIV/AIDS,"HIV testing, treatment and prevention services",true
+PRG-TB,Tuberculosis,TB screening and treatment,true
+PRG-MAT,Maternal Health,Antenatal and delivery services,true

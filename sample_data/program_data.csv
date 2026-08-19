@@ -1,0 +1,11 @@
+facility_code,program_code,indicator_code,indicator_name,indicator_unit,period_code,period_name,period_type,period_start,period_end,value
+FAC001,PRG-HIV,HIV-TST,Clients tested for HIV,clients,2025-01,January 2025,monthly,2025-01-01,2025-01-31,412
+FAC001,PRG-HIV,HIV-ART,Clients on ART,clients,2025-01,January 2025,monthly,2025-01-01,2025-01-31,1180
+FAC001,PRG-TB,TB-NOT,TB cases notified,cases,2025-01,January 2025,monthly,2025-01-01,2025-01-31,23
+FAC002,PRG-HIV,HIV-TST,Clients tested for HIV,clients,2025-01,January 2025,monthly,2025-01-01,2025-01-31,188
+FAC002,PRG-MAT,MAT-ANC1,First antenatal visits,visits,2025-01,January 2025,monthly,2025-01-01,2025-01-31,96
+FAC003,PRG-MAT,MAT-ANC1,First antenatal visits,visits,2025-01,January 2025,monthly,2025-01-01,2025-01-31,41
+FAC001,PRG-HIV,HIV-TST,Clients tested for HIV,clients,2025-02,February 2025,monthly,2025-02-01,2025-02-28,455
+FAC001,PRG-TB,TB-NOT,TB cases notified,cases,2025-02,February 2025,monthly,2025-02-01,2025-02-28,19
+FAC002,PRG-HIV,HIV-TST,Clients tested for HIV,clients,2025-02,February 2025,monthly,2025-02-01,2025-02-28,203
+FAC004,PRG-MAT,MAT-ANC1,First antenatal visits,visits,2025-02,February 2025,monthly,2025-02-01,2025-02-28,77

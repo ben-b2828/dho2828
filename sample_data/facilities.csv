@@ -1,0 +1,5 @@
+code,name,district,facility_type,is_active
+FAC001,Kasungu District Hospital,Kasungu,District Hospital,true
+FAC002,Chulu Health Centre,Kasungu,Health Centre,true
+FAC003,Mtunthama Health Post,Kasungu,Health Post,true
+FAC004,Santhe Rural Hospital,Kasungu,Rural Hospital,true
