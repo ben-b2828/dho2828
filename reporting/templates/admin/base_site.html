@@ -1,0 +1,29 @@
+{% extends "admin/base.html" %}
+{% load i18n static %}
+
+{% block title %}{% if subtitle %}{{ subtitle }} | {% endif %}{{ title }} | {{ site_title|default:_('HMIS admin') }}{% endblock %}
+
+{% block branding %}
+  <div id="site-name"><a href="{% url 'admin:index' %}">{{ site_header|default:_('HMIS administration') }}</a></div>
+  {% if user.is_anonymous %}{% include "admin/color_theme_toggle.html" %}{% endif %}
+{% endblock %}
+
+{% block nav-global %}{% endblock %}
+
+{% block extrastyle %}
+  {{ block.super }}
+  <style>
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background-image: linear-gradient(rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.88)),
+        url("{% static 'reporting/hospital-background.jpg' %}");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+    body, #content, .module, #content-main { background-color: transparent; }
+  </style>
+{% endblock %}

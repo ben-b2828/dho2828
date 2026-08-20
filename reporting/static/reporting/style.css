@@ -2,9 +2,24 @@
 
 body {
   margin: 0;
+  min-height: 100vh;
   font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
   color: #1c2430;
   background: #f6f8fa;
+}
+
+/* Site-wide photo backdrop, dimmed so page content stays readable. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image: linear-gradient(rgba(246, 248, 250, 0.62), rgba(246, 248, 250, 0.72)),
+    url("hospital-background.jpg");
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .topbar {
@@ -33,7 +48,7 @@ main { max-width: 1100px; margin: 1.5rem auto; padding: 0 1.5rem 3rem; }
   flex-wrap: wrap;
   gap: 1rem;
   align-items: flex-end;
-  background: #fff;
+  background: rgba(255, 255, 255, 0.95);
   border: 1px solid var(--line);
   border-radius: 6px;
   padding: 1rem;
@@ -58,9 +73,21 @@ button, .button {
   font-size: 0.9rem;
 }
 
-.summary { margin: 1rem 0; }
+.summary {
+  margin: 1rem 0;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 4px;
+  padding: 0.5rem 0.7rem;
+}
 
-table { width: 100%; border-collapse: collapse; background: #fff; border: 1px solid var(--line); }
+h1, h2 { text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8); }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid var(--line);
+}
 th, td { text-align: left; padding: 0.55rem 0.7rem; border-bottom: 1px solid var(--line); }
 th { background: #eef2f5; }
 td.num, th.num { text-align: right; }
@@ -76,5 +103,10 @@ td.num, th.num { text-align: right; }
   margin: 1rem 0;
 }
 
-.upload { background: #fff; border: 1px solid var(--line); border-radius: 6px; padding: 1rem; }
+.upload {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 1rem;
+}
 .templates code { display: block; color: #4a5563; font-size: 0.8rem; }
