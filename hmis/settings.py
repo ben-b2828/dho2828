@@ -37,13 +37,14 @@ ALLOWED_HOSTS = [
 # Application definition
 
 INSTALLED_APPS = [
+    # Listed first so its admin/base_site.html override wins over the stock one.
+    'reporting',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'reporting',
 ]
 
 MIDDLEWARE = [
